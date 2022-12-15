@@ -3,8 +3,8 @@ import { extendTheme } from "@chakra-ui/react";
 const colors = {
   primary: {
     100: "#020336",
-    200: "#27EF96",
-    300: "#10DE82",
+    200: "#00d2d2",
+    300: "#a2a3b7",
     400: "#0EBE6F",
     500: "#6161ff",
     600: "#030437",
@@ -13,7 +13,10 @@ const colors = {
     900: "#064C2E"
   }
 };
-
-const customTheme = extendTheme({ colors });
+const fonts= {
+  heading: `'Heading Font Name', sans-serif`,
+    body: `'Body Font Name', sans-serif`,
+}
+const customTheme = extendTheme({ colors,fonts });
 
 export default customTheme;
