@@ -3,12 +3,13 @@ import {
   Box,
   Heading,
   Image,
-  AspectRatio ,
+  AspectRatio,
   Grid,
   Center,
   Checkbox,
   Text,
   Button,
+  GridItem,
 } from "@chakra-ui/react";
 import {
   SiBmcsoftware,
@@ -39,7 +40,7 @@ const Home = () => {
         <Heading size="xl" border="1px" mt="4" color="white">
           What would you like to manage with friday.com Work OS?
         </Heading>
-        <Box maxW="750px"  p="30px">
+        <Box p="30px">
           <Grid
             templateColumns={{
               sm: "repeat(3, 1fr)",
@@ -258,7 +259,7 @@ const Home = () => {
           height="48px"
           width="200px"
           mt="40px"
-          _hover={{ borderColor: "white",border:'2px'}}
+          _hover={{ borderColor: "white", border: "2px" }}
           backgroundColor="#5034ff"
           color="white"
           rightIcon={<ArrowForwardIcon />}
@@ -266,30 +267,113 @@ const Home = () => {
         >
           Get Started
         </Button>
-        <Text mt="40px"  color="white">No Credit Card Needed unlimited time on free plan</Text>
+        <Text mt="40px" color="white">
+          No Credit Card Needed unlimited time on free plan
+        </Text>
       </Box>
       <Image
         src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/first_fold/image.png"
         alt="home1"
       />
+     <Heading mt="90px" as='h2' size={{sm:"xs", md:"sm",lg:"md",base:"xs"}}>Trusted by 152,000+ customers worldwide</Heading>
+     <Box maxW="900px" margin="auto">
+     <Grid m="100px" gap={5} templateColumns={{
+      sm: "repeat(3, 1fr)",
+      md: "repeat(5, 1fr)",
+      lg: "repeat(5, 1fr)",
+      base: "repeat(3, 1fr)",
+     }}>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/hulu.png" alt="hulu"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/bd.png" alt="bd"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/canva.png" alt="canva"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/nhl.png" alt="nhl"/>
+      <Image  w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/coca_cola.png" alt="cocacola"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/hubspot.png" alt="hubspot"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/Electronic_Arts.png" alt="ea"/>
+      <Image w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/nautica.png" alt="nautika"/>
+      <Image  w="150px" src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/customers/logos-v2/universal.png" alt="universal"/>
+     </Grid>
+     </Box>
+     
       <Grid
-            templateColumns={{
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(3, 1fr)",
-              base: "repeat(1, 1fr)",
-            }}
-            gap={3}
-          >
-            <video width="200px"  src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/MobileApp.mp4" autoPlay loop muted/>
-            <video width="400px" src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured images/Home Page - 2022 Rebrand/Masonry/final/Integration.mp4" autoPlay loop muted/> 
-        <video width="400px" src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Timeline_column.mp4" autoPlay loop muted/> 
-        <video width="400px" height="200px" src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Battery.mp4" autoPlay loop muted/>  
+        h="600px"
+        templateRows={{
+          sm: "repeat(3, 1fr)",
+          md: "repeat(5, 1fr)",
+          lg: "repeat(7, 1fr)",
+          base: "repeat(3, 1fr)",
+        }}
+        templateColumns={{
+          sm: "repeat(3, 1fr)",
+          md: "repeat(5, 1fr)",
+          lg: "repeat(7, 1fr)",
+          base: "repeat(3, 1fr)",
+        }}
+        gap={4}
         
-        <video width="400px" height="400px" src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Talk.mp4" autoPlay loop muted/>
-        <video width="700px" src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Dash.mp4" autoPlay loop muted/>
-          </Grid>
+      >
+        <GridItem rowSpan={3} colSpan={1} >
+          
+          <video
+            width="300px"
+            h="300px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/MobileApp.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </GridItem>
+
+        <GridItem colSpan={2}>
+          <video
+            width="200px"
+            height="200px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Talk.mp4"
+            autoPlay
+            loop
+            muted
+          />{" "}
+        </GridItem>
+        <GridItem colSpan={2}>
+          <video
+            width="200px"
+            height="200px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Battery.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </GridItem>
+        <GridItem colSpan={2}>
+          {" "}
+          <video
+            width="200px"
+            height="200px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Timeline_column.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </GridItem>
         
+        <GridItem colSpan={4} rowSpan={3}>
+          {" "}
+          <video
+            width="700px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Dash.mp4"
+            autoPlay
+            loop
+            muted
+          />
+        </GridItem>
+        <GridItem colSpan={2}><video
+            width="200px"
+            src="https://dapulse-res.cloudinary.com/video/upload/q_auto,f_auto,cs_copy/Generator_featured%20images/Home%20Page%20-%202022%20Rebrand/Masonry/final/Pie.mp4"
+            autoPlay
+            loop
+            muted
+          /></GridItem>
+      </Grid>
     </div>
   );
 };
