@@ -16,6 +16,8 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Image,
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
@@ -52,7 +54,11 @@ export default function Simple() {
           />
           <HStack spacing={8} alignItems={"center"}border='1px'>
             <Box>
-              <Logo />
+              <HStack spacing={0}>
+              <Image w="50%" src="https://i0.wp.com/mainestartupsinsider.com/wp-content/uploads/2020/02/friday-logo-read.png?resize=300%2C90&ssl=1" alt="hg"/>
+              <Text color="#f06f43" fontWeight="extrabold" fontSize="25px">.com</Text>
+              </HStack>
+              
             </Box>
             <HStack
               as={"nav"}
