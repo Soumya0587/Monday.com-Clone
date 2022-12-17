@@ -1,4 +1,5 @@
 import Logo from "./logo";
+import BasicUsage from "../modal"
 import {
   Box,
   Flex,
@@ -67,9 +68,10 @@ export default function Simple() {
 
             <HStack>
               <ButtonGroup gap="2">
-                <Button color={["primary.500"]} variant="outline" w="50">
+                {/* <Button color={["primary.500"]} variant="outline" w="50">
                   Create New Account
-                </Button>
+                </Button> */}
+                <BasicUsage/>
                 <Button
                   rightIcon={<ArrowForwardIcon />}
                   color={["primary.500"]}
