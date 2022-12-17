@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./Components/Header";
-import Home from "./Pages/Home"
+
 import './App.css';
+import AllRoutes from "./Pages/Allroutes";
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Home/>
+      <AllRoutes/>
     </div>
   );
 }

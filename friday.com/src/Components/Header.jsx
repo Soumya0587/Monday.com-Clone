@@ -1,5 +1,7 @@
 import Logo from "./logo";
 import BasicUsage from "../modal"
+import Login from "../Pages/login"
+import { Link as RouterLink, } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -78,13 +80,15 @@ export default function Simple() {
                   Create New Account
                 </Button> */}
                 <BasicUsage/>
+                
                 <Button
                   rightIcon={<ArrowForwardIcon />}
                   color={["primary.500"]}
                   variant="solid"
                   
                 >
-                  Login
+                  <RouterLink to="/login"> Login</RouterLink>
+                  
                 </Button>
               </ButtonGroup>
             </HStack>

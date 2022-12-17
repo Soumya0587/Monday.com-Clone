@@ -38,8 +38,10 @@ import { AuthContext } from "./AuthContext/Context";
         }
       })
       let data = await res.json()
-      
+      if(data.token){
         loginUser(data.token)
+        navigate("/login")
+      }
         
      
     }
