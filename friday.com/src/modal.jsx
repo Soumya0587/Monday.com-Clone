@@ -1,5 +1,5 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
-import SplitScreen from "./form"
+import SignupCard from "./form"
 function BasicUsage() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
@@ -9,10 +9,10 @@ function BasicUsage() {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            <ModalHeader>Welcome to Friday.com</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <SplitScreen/>
+              <SignupCard/>
             </ModalBody>
   
             

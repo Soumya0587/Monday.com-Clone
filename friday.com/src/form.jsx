@@ -14,13 +14,45 @@ import {
     useColorModeValue,
     Link,
   } from '@chakra-ui/react';
-  import { useState } from 'react';
+  import { useState,useContext,useEffect } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { Link as RouterLink,useNavigate } from "react-router-dom";
+
+import { AuthContext } from "./AuthContext/Context";
+
+
+
   
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);
-  
+    const [text,settext]=useState({email:"",password:""})
+    const {isAuth,loginUser}= useContext(AuthContext)
+    const navigate=useNavigate()
+    const getdata=async(e)=>{
+      e.preventDefault()
+      let res= await fetch(`https://reqres.in/api/register`,{
+        method :"POST",
+        body : JSON.stringify(text),
+        headers:{
+          "Content-Type":"application/json"
+        }
+      })
+      let data = await res.json()
+      
+        loginUser(data.token)
+        
+     
+    }
+    
+    
+    const handlechage=(e)=>{
+    
+    settext({...text,[e.target.name]:e.target.value})
+    console.log(text)
+    }
+    console.log(isAuth)
     return (
+        <form onSubmit={getdata}>
       <Flex
         minH={'100vh'}
         align={'center'}
@@ -40,10 +72,13 @@ import {
             bg={useColorModeValue('white', 'gray.700')}
             boxShadow={'lg'}
             p={8}>
+                
             <Stack spacing={4}>
               <HStack>
+              
                 <Box>
-                  <FormControl id="firstName" isRequired>
+                    
+                    <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
                     <Input type="text" />
                   </FormControl>
@@ -57,12 +92,12 @@ import {
               </HStack>
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input type="email" name='email' onChange={handlechage}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input type={showPassword ? 'text' : 'password'} name='password' onChange={handlechage} />
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -74,9 +109,13 @@ import {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
+                    
+               
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
+                  type='submit'
+                  
                   size="lg"
                   bg={'blue.400'}
                   color={'white'}
@@ -86,6 +125,7 @@ import {
                   Sign up
                 </Button>
               </Stack>
+              
               <Stack pt={6}>
                 <Text align={'center'}>
                   Already a user? <Link color={'blue.400'}>Login</Link>
@@ -93,7 +133,10 @@ import {
               </Stack>
             </Stack>
           </Box>
+          
         </Stack>
+        
       </Flex>
+      </form>
     );
   }
