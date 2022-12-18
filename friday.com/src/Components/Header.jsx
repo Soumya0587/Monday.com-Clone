@@ -24,6 +24,7 @@ import {
 import { HamburgerIcon, CloseIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Links = ["Projects", "UseCases", "Features", "Resources"];
+const Links1 = ["Pricing", "Contact Sales"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -45,8 +46,8 @@ export default function Simple() {
 
   return (
     <>
-      <Box bg={useColorModeValue("white", "white")} px={4} border='1px'>
-        <Flex h={16} alignItems="center" justifyContent="space-between" border='1px'>
+      <Box bg={useColorModeValue("white", "white")} px={4} >
+        <Flex h={16} alignItems="center" justifyContent="space-around" >
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -54,7 +55,7 @@ export default function Simple() {
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={"center"}border='1px'>
+          <HStack spacing={3} alignItems={"center"}>
             <Box>
               <HStack spacing={0}>
               <Image w="50%" src="https://i0.wp.com/mainestartupsinsider.com/wp-content/uploads/2020/02/friday-logo-read.png?resize=300%2C90&ssl=1" alt="hg"/>
@@ -64,7 +65,7 @@ export default function Simple() {
             </Box>
             <HStack
               as={"nav"}
-              spacing={9}
+              spacing={2}
               display={{ base: "none", md: "flex" }}
             >
               {Links.map((link) => (
@@ -79,13 +80,20 @@ export default function Simple() {
                 {/* <Button color={["primary.500"]} variant="outline" w="50">
                   Create New Account
                 </Button> */}
+                {Links1.map((link) => (
+                <NavLink key={link}>
+                  <Text>{link}</Text>
+                  
+                  </NavLink>
+              ))}
                 <BasicUsage/>
                 
                 <Button
                   rightIcon={<ArrowForwardIcon />}
-                  color={["primary.500"]}
+                  color="white"
                   variant="solid"
-                  
+                  backgroundColor="#5034ff"
+                  _hover={{ borderColor: "white", border: "2px" }}
                 >
                   <RouterLink to="/login"> Login</RouterLink>
                   
