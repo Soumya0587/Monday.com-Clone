@@ -6,15 +6,20 @@ export const AuthContext=createContext()
 
 function AuthContextProvider({children}) {
     const obj={token:null,isAuth:false}
+    const loginobj={token:null,isAuth:false}
     const [isAuth,setauth]=useState(obj)
+    const [loginisAuth,loginsetauth]=useState(loginobj)
 
-    const loginUser=(token)=>{
+    const loginuser=(token)=>{
+        loginsetauth({token:token,isAuth:true})
+    }
+    const SignUser=(token)=>{
         setauth({token:token,isAuth:true})
     }
     const logoutUser=()=>{
         setauth(obj)
     }
-    return <AuthContext.Provider value={{isAuth,loginUser,logoutUser}}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{isAuth,SignUser,loginisAuth,logoutUser,loginuser}}>{children}</AuthContext.Provider>
 
 }
 

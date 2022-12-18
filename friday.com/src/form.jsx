@@ -26,7 +26,7 @@ import { AuthContext } from "./AuthContext/Context";
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);
     const [text,settext]=useState({email:"",password:""})
-    const {isAuth,loginUser}= useContext(AuthContext)
+    const {isAuth,SignUser}= useContext(AuthContext)
     const navigate=useNavigate()
     const getdata=async(e)=>{
       e.preventDefault()
@@ -39,7 +39,7 @@ import { AuthContext } from "./AuthContext/Context";
       })
       let data = await res.json()
       if(data.token){
-        loginUser(data.token)
+        SignUser(data.token)
         navigate("/login")
       }
         
