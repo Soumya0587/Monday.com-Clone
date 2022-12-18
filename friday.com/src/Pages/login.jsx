@@ -12,9 +12,44 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useState,useContext,useEffect } from 'react';
 
+import { Link as RouterLink,useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext/Context";
 export default function Login() {
+  
+  const [text,settext]=useState({email:"",password:""})
+  const {loginisAuth,loginuser}= useContext(AuthContext)
+  const navigate=useNavigate()
+  const getdata=async(e)=>{
+    e.preventDefault()
+    let res= await fetch(`https://reqres.in/api/login`,{
+      method :"POST",
+      body : JSON.stringify(text),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    let data = await res.json()
+    if(data.token){
+      loginuser(data.token)
+      navigate("/plan")
+    }
+      
+   
+  }
+  
+  
+  const handlechage=(e)=>{
+  
+  settext({...text,[e.target.name]:e.target.value})
+  console.log(text)
+  }
+  console.log(loginisAuth)
   return (
+    <form onSubmit={getdata}>
+
+    
     <Flex
       minH={'100vh'}
       align={'center'}
@@ -35,11 +70,11 @@ export default function Login() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" name='email' onChange={handlechage} />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input type="password" name='password' onChange={handlechage} />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -50,6 +85,7 @@ export default function Login() {
                 <Link color={'blue.400'}>Forgot password?</Link>
               </Stack>
               <Button
+              type='submit'
                 bg={'blue.400'}
                 color={'white'}
                 _hover={{
@@ -62,5 +98,6 @@ export default function Login() {
         </Box>
       </Stack>
     </Flex>
+    </form>
   );
 }
